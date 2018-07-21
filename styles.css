@@ -1,0 +1,85 @@
+a {
+  text-decoration: none;
+  color: unset;
+  display: block;
+}
+
+body {
+  font-family: Oxygen;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  line-height: 1.3em;
+  color: #302423;
+  background-color: #FFEEEE;
+  width: 80%;
+  margin: 4% auto 2% auto;
+}
+
+h1 {
+  font-style: italic;
+  font-weight: 700;
+  color: #BF4291;
+}
+
+#navbar {
+  /*should be shown on the left side of the screen and should always be visible to the user.*/
+  height: 100%;
+  width: 30%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden; /* Disables horizontal scroll */
+  padding-top: 1%;
+  margin-top: 4%;
+  margin-left: 3%;
+}
+
+main {
+  width: 70%;
+  padding-top: 2%;
+  margin-left: 13%;
+}
+
+code {
+  font-family: 'Oxygen Mono';
+  background-color: #B2D8D8;
+  width: 90%;
+  margin: 2% auto 2% auto;
+  display: block;
+  padding: 2%;
+}
+
+.mono {
+  font-family: 'Oxygen Mono';
+  font-weight: bold;
+}
+
+/* Media Queries */
+  @media (max-width: 768px) {
+    body {
+      width: 100%;
+    }
+    
+    #navbar {
+      width: 100%;
+      width: auto;
+      position: relative;
+      z-index: 0;
+    /*   overflow-x: hidden; Disables horizontal scroll */
+      padding-top: 1%;
+      margin: 4% auto 0 auto;
+      text-align: center;
+    }
+
+    a {
+      border-bottom: 1px solid #302423;
+      padding: 1%;
+    }
+
+    main {
+      width: 90%;
+      margin: 0 auto 0 auto;
+    }
+
+  }

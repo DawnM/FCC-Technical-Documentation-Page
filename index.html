@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>FCC: Technical Documentation Page</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Oxygen+Mono|Oxygen:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</head>
+
+<body>
+  <nav id="navbar">
+  <!-- Must show on the left of desktop screens, and always be visible to the user -->
+    <header>
+      <a href="#main-doc"><h1>Sass</h1></a>
+    </header>      
+      <a href="#Features" class="nav-link">Features</a>
+      <a href="#Syntax" class="nav-link">Syntax</a>
+      <a href="#Using_Sass" class="nav-link">Using Sass</a>
+      <a href="#CSS_Extensions" class="nav-link">CSS Extensions</a>
+      <a href="#SassScript" class="nav-link">SassScript</a>
+  </nav>
+
+  <main id="main-doc">
+    <h2>Sass (Syntactically Awesome StyleSheets)</h2>
+    <p>Sass is an extension of CSS that adds power and elegance to the basic language. It allows you to use variables, nested rules, mixins, inline imports, and more, all with a fully CSS-compatible syntax. Sass helps keep large stylesheets well-organized, and get small stylesheets up and running quickly, particularly with the help of the Compass style library.</p>
+    <section class="main-section" id="Features">
+      <header><h3>Features</h3></header>
+      <ul>
+        <li>Fully CSS-compatible</li>
+        <li>Language extensions such as variables, nesting, and mixins</li>
+        <li>Many useful functions for manipulating colors and other values</li>
+        <li>Advanced features like control directives for libraries</li>
+        <li>Well-formatted, customizable output</li>
+      </ul>
+    </section>
+    <section class="main-section" id="Syntax">
+      <header><h3>Syntax</h3></header>
+      <p>There are two syntaxes available for Sass. The first, known as SCSS (Sassy CSS) and used throughout this reference, is an extension of the syntax of CSS. This means that every valid CSS stylesheet is a valid SCSS file with the same meaning. In addition, SCSS understands most CSS hacks and vendor-specific syntax, such as IE's old <span class="mono">filter</span> syntax. This syntax is enhanced with the Sass features described below. Files using this syntax have the <span class="mono">.scss</span> extension.</p>
+      <p>The second and older syntax, known as the indented syntax (or sometimes just "Sass"), provides a more concise way of writing CSS. It uses indentation rather than brackets to indicate nesting of selectors, and newlines rather than semicolons to separate properties. Some people find this to be easier to read and quicker to write than SCSS. The indented syntax has all the same features, although some of them have slightly different syntax; this is described in the indented syntax reference. Files using this syntax have the <span class="mono">.sass</span> extension.</p>
+      <p>Either syntax can import files written in the other. Files can be automatically converted from one syntax to the other using the sass-convert command line tool:</p>
+      <code># Convert Sass to SCSS
+        <br>$ sass-convert style.sass style.scss<br>
+        <br># Convert SCSS to Sass
+        <br>$ sass-convert style.scss style.sass</code>
+      <p>Note that this command does not generate CSS files. For that, use the <span class="mono">sass</span> command described elsewhere.</p>
+    </section>
+    <section class="main-section" id="Using_Sass">
+      <header><h3>Using Sass</h3></header>
+      <p>Sass can be used in three ways: as a command-line tool, as a standalone Ruby module, and as a plugin for any Rack-enabled framework, including Ruby on Rails and Merb. The first step for all of these is to install the Sass gem:</p>
+      <code>gem install sass</code>
+      <p>If you're using Windows, you may need to install Ruby first.</p>
+      <p>To run Sass from the command line, just use</p>
+      <code>sass input.scss output.css</code>
+    </section>
+    <section class="main-section" id="CSS_Extensions">
+      <header><h3>CSS Extensions</h3></header>
+      <h4>Nested Rules</h4>
+      <p>Sass allows CSS rules to be nested within one another. The inner rule then only applies within the outer rule's selector. For example:</p>
+      <code>
+        #main p {<br>
+        &nbsp;&nbsp;color: #00ff00;<br>
+        &nbsp;&nbsp;width: 97%;<br>
+        <br>
+        &nbsp;&nbsp;.redbox {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;background-color: #ff0000;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;color: #000000;<br>
+        &nbsp;&nbsp;}<br>
+        }
+      </code>
+      <p>is compiled to:</p>
+      <code>
+        #main p {<br>
+        &nbsp;&nbsp;color: #00ff00;<br>
+        &nbsp;&nbsp;width: 97%; }<br>
+        &nbsp;&nbsp;#main p .redbox {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;background-color: #ff0000;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;color: #000000; }
+      </code>
+    </section>
+    <section class="main-section" id="SassScript">
+      <header><h3>SassScript</h3></header>
+      <p>In addition to the plain CSS property syntax, Sass supports a small set of extensions called SassScript. SassScript allows properties to use variables, arithmetic, and extra functions. SassScript can be used in any property value.</p>
+      <p>SassScript can also be used to generate selectors and property names, which is useful when writing mixins. This is done via interpolation.</p>
+      <h4>Interactive Shell</h4>
+      <p>You can easily experiment with SassScript using the interactive shell. To launch the shell run the sass command-line with the <span class="mono">-i</span> option. At the prompt, enter any legal SassScript expression to have it evaluated and the result printed out for you:</p>
+      <code>
+        $ sass -i<br>
+        >> "Hello, Sassy World!"<br>
+        "Hello, Sassy World!"<br>
+        >> 1px + 1px + 1px<br>
+        3px<br>
+        >> #777 + #777<br>
+        #eeeeee<br>
+        >> #777 + #888<br>
+        white
+      </code>
+    </section>
+  </main>
+</body>
+</html>
